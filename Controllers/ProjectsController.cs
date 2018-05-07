@@ -257,8 +257,10 @@ namespace BuffteksWebsite.Controllers
         {
             var projectAddedTo = await _context.Projects.SingleOrDefaultAsync(Pro => Pro.ID == EPDVMD.ProjectID);
             var participantToAdd = await _context.Members.SingleOrDefaultAsync(Mem => Mem.ID == EPDVMD.SelectedID);
+            var clientToAdd = await _context.Clients.SingleOrDefaultAsync(Clen => Clen.ID == EPDVMD.SelectedID);
 
-            ProjectRoster dude = new ProjectRoster
+
+            ProjectRoster thing = new ProjectRoster
             {
                 ProjectID = projectAddedTo.ID,
                 Project = projectAddedTo,
@@ -267,12 +269,28 @@ namespace BuffteksWebsite.Controllers
             };
 
             //this writes a new record to the database
-            await _context.ProjectRoster.AddAsync(dude);
+            await _context.ProjectRoster.AddAsync(thing);
 
             //this saves the  change from the write above
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
-            
+
+
+            //attempt to add client to project, failed. 
+            //             ProjectRoster anotherThing = new ProjectRoster
+            // {
+            //     ProjectID = projectAddedTo.ID,
+            //     Project = projectAddedTo,
+            //     ProjectParticipantID = clientToAdd.ID,
+            //     ProjectParticipant = clientToAdd
+            // };
+
+            // //this writes a new record to the database
+            // await _context.ProjectRoster.AddAsync(anotherThing);
+
+            // //this saves the  change from the write above
+            // await _context.SaveChangesAsync();
+            // return RedirectToAction(nameof(Index));
             
         }
 
@@ -295,6 +313,7 @@ namespace BuffteksWebsite.Controllers
             }
 
             return View(project);
+            
         }
 
         // POST: Projects/Delete/5
@@ -306,6 +325,12 @@ namespace BuffteksWebsite.Controllers
             _context.Projects.Remove(project);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
+
+
+            //Found on stackoverflow does not work
+            // foreach(var m in m.db.BuffteksWebsiteContext.Where(f=>f.memberID == memberID)){
+            //       m.db.BuffteksWebsiteContext.Remove(m);
+            //       }
         }
 
         private bool ProjectExists(string id)
