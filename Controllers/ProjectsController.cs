@@ -212,22 +212,23 @@ namespace BuffteksWebsite.Controllers
            
             return View(epdvm);
         }        
-        // POST: Projects/EditProjectParticipants/5
-        // [HttpPost, ActionName("EditProjectParticipants")]
-        // [ValidateAntiForgeryToken]
-        // public async Task<IActionResult> AddConfirmed(string id)
-        // {
+        /*
+         POST: Projects/EditProjectParticipants/5
+         [HttpPost, ActionName("EditProjectParticipants")]
+         [ValidateAntiForgeryToken]
+         public async Task<IActionResult> AddConfirmed(string id)
+         {
             
-        //     var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
-        //     _context.ProjectRoster.Add(participant);
-        //     await _context.SaveChangesAsync();
-        //     return RedirectToAction(nameof(Index));
+             var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
+             _context.ProjectRoster.Add(participant);
+             await _context.SaveChangesAsync();
+             return RedirectToAction(nameof(Index));
 
             
             
-        // }
+   }
 
-
+*/
         // GET: Projects/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
