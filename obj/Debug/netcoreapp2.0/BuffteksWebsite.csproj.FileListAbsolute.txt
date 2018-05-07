@@ -1,0 +1,43 @@
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.deps.json
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.json
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.dev.json
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.dll
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.pdb
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.csprojResolveAssemblyReference.cache
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.csproj.CoreCompileInputs.cache
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfoInputs.cache
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfo.cs
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.dll
+C:\CIDM3312\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.pdb
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.deps.json
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.json
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.dev.json
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.dll
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.pdb
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.csprojResolveAssemblyReference.cache
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.csproj.CoreCompileInputs.cache
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfoInputs.cache
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfo.cs
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.dll
+D:\jeff\Dropbox\CIS\CIDM\CIDM3312\Spring 2018\CIDM3312-Spring2018-InClass\BuffteksWebsiteSolution\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.pdb
+C:\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.deps.json
+C:\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.json
+C:\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.dev.json
+C:\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.dll
+C:\BuffteksWebsite\bin\Debug\netcoreapp2.0\BuffteksWebsite.pdb
+C:\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.csprojResolveAssemblyReference.cache
+C:\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.csproj.CoreCompileInputs.cache
+C:\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfoInputs.cache
+C:\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfo.cs
+C:\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.dll
+C:\BuffteksWebsite\obj\Debug\netcoreapp2.0\BuffteksWebsite.pdb
+C:\BuffteksWebsiteS\bin\Debug\netcoreapp2.0\BuffteksWebsite.deps.json
+C:\BuffteksWebsiteS\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.json
+C:\BuffteksWebsiteS\bin\Debug\netcoreapp2.0\BuffteksWebsite.runtimeconfig.dev.json
+C:\BuffteksWebsiteS\bin\Debug\netcoreapp2.0\BuffteksWebsite.dll
+C:\BuffteksWebsiteS\bin\Debug\netcoreapp2.0\BuffteksWebsite.pdb
+C:\BuffteksWebsiteS\obj\Debug\netcoreapp2.0\BuffteksWebsite.csproj.CoreCompileInputs.cache
+C:\BuffteksWebsiteS\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfoInputs.cache
+C:\BuffteksWebsiteS\obj\Debug\netcoreapp2.0\BuffteksWebsite.AssemblyInfo.cs
+C:\BuffteksWebsiteS\obj\Debug\netcoreapp2.0\BuffteksWebsite.dll
+C:\BuffteksWebsiteS\obj\Debug\netcoreapp2.0\BuffteksWebsite.pdb
