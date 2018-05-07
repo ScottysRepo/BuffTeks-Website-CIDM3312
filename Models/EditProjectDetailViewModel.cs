@@ -15,6 +15,8 @@ namespace BuffteksWebsite.Models
         public Project TheProject {get; set;}
 
         public string SelectedID { get; set; }
+                public List<Client> ProjectClients { get; set;}
+
 
         public List<SelectListItem> ProjectClientsList { get; set; }
         
