@@ -12,11 +12,11 @@ namespace BuffteksWebsite.Models
     public class EditProjectDetailViewModel
     {
 
+        public string ProjectID {get; set; }
+
         public Project TheProject {get; set;}
 
         public string SelectedID { get; set; }
-                public List<Client> ProjectClients { get; set;}
-
 
         public List<SelectListItem> ProjectClientsList { get; set; }
         
