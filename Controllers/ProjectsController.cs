@@ -76,7 +76,7 @@ namespace BuffteksWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ID,ProjectName,Details")] Project project)
+        public async Task<IActionResult> Create([Bind("ID,ProjectName,ProjectDescription")] Project project)
         {
             if (ModelState.IsValid)
             {
@@ -108,7 +108,7 @@ namespace BuffteksWebsite.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("ID,ProjectName,Details")] Project project)
+        public async Task<IActionResult> Edit(string id, [Bind("ID,ProjectName,ProjectDescription")] Project project)
         {
             if (id != project.ID)
             {
@@ -153,10 +153,20 @@ namespace BuffteksWebsite.Controllers
             }
 
 
+            //var clients = await _context.Clients.ToListAsync();
 
             //CLIENTS
+            //pull 'em into lists first
             var clients = await _context.Clients.ToListAsync();
-            var projectroster = await _context.ProjectRoster.ToListAsync();            
+            var projectroster = await _context.ProjectRoster.ToListAsync();
+
+
+            var uniqueclients = 
+                from participant in clients
+                join projectparticipant in projectroster
+                on participant.ID equals projectparticipant.ProjectParticipantID
+                where participant.ID != projectparticipant.ProjectParticipantID
+                select participant;
 
             List<SelectListItem> clientsSelectList = new List<SelectListItem>();
 
@@ -165,71 +175,59 @@ namespace BuffteksWebsite.Controllers
                 clientsSelectList.Add(new SelectListItem { Value=client.ID, Text = client.FirstName + " " + client.LastName});
             }
 
-            //MEMBERS
-            var members = await _context.Members.ToListAsync();
 
-            List<SelectListItem> membersSelectList = new List<SelectListItem>();
-            var membersforedit = 
+
+
+            var membersOnProject = 
                 from participant in _context.Members
                 join projectparticipant in _context.ProjectRoster
                 on participant.ID equals projectparticipant.ProjectParticipantID
-                where project.ID == projectparticipant.ProjectID
+                where project.ID == projectparticipant.ProjectID                
                 select participant;
-            int indx = -1;
 
-            foreach(var member in members)
+            var allMembers = 
+                from participant in _context.Members           
+                select participant;              
+
+            var allMembersList = allMembers.ToList();
+            var membersOnProjectList = membersOnProject.ToList();
+
+            var membersNotOnProject = allMembersList.Except(membersOnProjectList).ToList();
+            
+            List<SelectListItem> membersSelectList = new List<SelectListItem>();
+
+            foreach(var member in membersNotOnProject)
             {
-                indx++;
                 membersSelectList.Add(new SelectListItem { Value=member.ID, Text = member.FirstName + " " + member.LastName});
-                foreach(var item in membersforedit){
-                    if(membersSelectList.Any(d => d.Value == item.ID)){
-                        membersSelectList.RemoveAt(indx);
-                        indx--;
-                    }
-                }
-
             }
-            
-            var clientsforedit = 
-                from participant in _context.Clients
-                join projectparticipant in _context.ProjectRoster
-                on participant.ID equals projectparticipant.ProjectParticipantID
-                where project.ID == projectparticipant.ProjectID
-                select participant;
 
-
-            
-            
             //create and prepare ViewModel
             EditProjectDetailViewModel epdvm = new EditProjectDetailViewModel
             {
                 TheProject = project,
-                ProjectClients = clientsforedit.ToList() ?? null,
                 ProjectClientsList = clientsSelectList,
                 ProjectMembersList = membersSelectList
             };
-            
-
+           
+           
             return View(epdvm);
         }        
-        [HttpPost]
-        public async Task<IActionResult> EditProjectParticipants(String id, EditProjectDetailViewModel model){
-            var membersFromDb = _context.Members.ToList();
-            Member ans = null;
-            foreach(var items in membersFromDb){
-                if(items.ID == model.SelectedID){
-                    ans = items;
-                }
-            }
-            var projectroster = new ProjectRoster {
-                    ProjectID = model.TheProject.ID.ToString(), 
-                    Project = model.TheProject,
-                    ProjectParticipantID = model.SelectedID.ToString(),
-                    ProjectParticipant = ans};
-            _context.ProjectRoster.Add(projectroster);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
+        // POST: Projects/EditProjectParticipants/5
+        // [HttpPost, ActionName("EditProjectParticipants")]
+        // [ValidateAntiForgeryToken]
+        // public async Task<IActionResult> AddConfirmed(string id)
+        // {
+            
+        //     var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
+        //     _context.ProjectRoster.Add(participant);
+        //     await _context.SaveChangesAsync();
+        //     return RedirectToAction(nameof(Index));
+
+            
+            
+        // }
+
+
         // GET: Projects/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
