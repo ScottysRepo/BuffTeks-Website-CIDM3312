@@ -208,27 +208,42 @@ namespace BuffteksWebsite.Controllers
                 ProjectClientsList = clientsSelectList,
                 ProjectMembersList = membersSelectList
             };
+
+            // SelectedDropDown SDD = new SelectedDropDown
+            // {
+            //     TheProject = project,
+            //     ProjectClientsList = clientsSelectList,
+            //     ProjectMembersList = membersSelectList
+            // };
            
            
             return View(epdvm);
         }        
-        /*
-         POST: Projects/EditProjectParticipants/5
+
+
+
+      //   POST: Projects/EditProjectParticipants/5
+      
          [HttpPost, ActionName("EditProjectParticipants")]
          [ValidateAntiForgeryToken]
-         public async Task<IActionResult> AddConfirmed(string id)
+
+         public async Task<IActionResult> AddConfirmed(EditProjectDetailViewModel model)
          {
+        //  var participant = EditProjectParticipants.SelectListItem();
+        //  var participant = EditProjectDetailViewModel.ProjectMembersList;
             
-             var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
-             _context.ProjectRoster.Add(participant);
+        //  var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
+        //  _context.ProjectRoster.Add(participant);
+        //  await _context.SaveChangesAsync();
+        //  return RedirectToAction(nameof(Index));
+
+             var participant = await _context.Members.SingleOrDefaultAsync(m => m.ID == model.SelectedID);
+             _context.Members.Add(participant);
              await _context.SaveChangesAsync();
              return RedirectToAction(nameof(Index));
+         }
 
-            
-            
-   }
 
-*/
         // GET: Projects/Delete/5
         public async Task<IActionResult> Delete(string id)
         {
