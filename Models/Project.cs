@@ -10,6 +10,7 @@ using Microsoft.EntityFrameworkCore;
     {
         [Key]
         public string ID { get; set; }
+
         [Display(Name = "Project Name")]                
         public string ProjectName { get; set; }
         [Display(Name = "Project Description")]                

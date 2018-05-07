@@ -11,9 +11,7 @@ namespace BuffteksWebsite.Models
 {
     public class EditProjectDetailViewModel
     {
-
         public string ProjectID {get; set; }
-
         public Project TheProject {get; set;}
 
         public string SelectedID { get; set; }
