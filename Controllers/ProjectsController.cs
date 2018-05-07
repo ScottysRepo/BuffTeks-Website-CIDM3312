@@ -200,10 +200,10 @@ namespace BuffteksWebsite.Controllers
             {
                 membersSelectList.Add(new SelectListItem { Value=member.ID, Text = member.FirstName + " " + member.LastName});
             }
-
             //create and prepare ViewModel
             EditProjectDetailViewModel epdvm = new EditProjectDetailViewModel
             {
+                ProjectID = project.ID,
                 TheProject = project,
                 ProjectClientsList = clientsSelectList,
                 ProjectMembersList = membersSelectList
@@ -219,30 +219,65 @@ namespace BuffteksWebsite.Controllers
            
             return View(epdvm);
         }        
-
-
-
-      //   POST: Projects/EditProjectParticipants/5
-      
-         [HttpPost, ActionName("EditProjectParticipants")]
-         [ValidateAntiForgeryToken]
-
-         public async Task<IActionResult> AddConfirmed(EditProjectDetailViewModel model)
-         {
-        //  var participant = EditProjectParticipants.SelectListItem();
-        //  var participant = EditProjectDetailViewModel.ProjectMembersList;
+        // POST: Projects/EditProjectParticipants/5
+        // [HttpPost, ActionName("EditProjectParticipants")]
+        // [ValidateAntiForgeryToken]
+        // public async Task<IActionResult> AddConfirmed(string id)
+        // {
+        //     // var participant = EditProjectParticipants.SelectListItem();--------------------------------------------------------------------
+        //     //var participant = EditProjectDetailViewModel.ProjectMembersList;
             
-        //  var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
-        //  _context.ProjectRoster.Add(participant);
-        //  await _context.SaveChangesAsync();
-        //  return RedirectToAction(nameof(Index));
+        //     // var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
+        //     // _context.ProjectRoster.Add(participant);
+        //     // await _context.SaveChangesAsync();
+        //     // return RedirectToAction(nameof(Index));
 
-             var participant = await _context.Members.SingleOrDefaultAsync(m => m.ID == model.SelectedID);
-             _context.Members.Add(participant);
-             await _context.SaveChangesAsync();
-             return RedirectToAction(nameof(Index));
-         }
+        //     var participant = await _context.Members.SingleOrDefaultAsync(m => m.ID == id);
+        //     _context.ProjectRoster.Add(participant);
+        //     await _context.SaveChangesAsync();
+        //     return RedirectToAction(nameof(Index));
+        // }
 
+
+            // var participant = EditProjectParticipants.SelectListItem();--------------------------------------------------------------------
+            //var participant = EditProjectDetailViewModel.ProjectMembersList;
+            
+            // var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
+            // _context.ProjectRoster.Add(participant);
+            // await _context.SaveChangesAsync();
+            // return RedirectToAction(nameof(Index));
+
+//---------------------------------------------------------------------------------------------------------------------------------------
+
+
+        // POST: Projects/EditProjectParticipants/5
+        [HttpPost, ActionName("EditProjectParticipants")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> AddConfirmed(EditProjectDetailViewModel EPDVMD)
+        {
+            var projectAddedTo = await _context.Projects.SingleOrDefaultAsync(Pro => Pro.ID == EPDVMD.ProjectID);
+            var participantToAdd = await _context.Members.SingleOrDefaultAsync(Mem => Mem.ID == EPDVMD.SelectedID);
+
+            ProjectRoster dude = new ProjectRoster
+            {
+                ProjectID = projectAddedTo.ID,
+                Project = projectAddedTo,
+                ProjectParticipantID = participantToAdd.ID,
+                ProjectParticipant = participantToAdd
+            };
+
+            //this writes a new record to the database
+            await _context.ProjectRoster.AddAsync(dude);
+
+            //this saves the  change from the write above
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
+            
+            
+        }
+
+
+//---------------------------------------------------------------------------------------------------------------------------------------
 
         // GET: Projects/Delete/5
         public async Task<IActionResult> Delete(string id)
@@ -279,3 +314,67 @@ namespace BuffteksWebsite.Controllers
         }
     }
 }
+//       //   POST: Projects/EditProjectParticipants/5
+      
+//          [HttpPost, ActionName("EditProjectParticipants")]
+//          [ValidateAntiForgeryToken]
+
+//          public async Task<IActionResult> AddConfirmed(EditProjectDetailViewModel model)
+//          {
+//         //  var participant = EditProjectParticipants.SelectListItem();
+//         //  var participant = EditProjectDetailViewModel.ProjectMembersList;
+            
+//         //  var participant = EditProjectDetailViewModel.ProjectMembersList(m => m.ID == id);
+//         //  _context.ProjectRoster.Add(participant);
+//         //  await _context.SaveChangesAsync();
+//         //  return RedirectToAction(nameof(Index));
+
+//              var participant = await _context.Members.SingleOrDefaultAsync(m => m.ID == model.SelectedID);
+//              _context.Members.Add(participant);
+//              await _context.SaveChangesAsync();
+//              return RedirectToAction(nameof(Index));
+
+//             //  var client_ = await _context.Clients.SingleOrDefaultAsync(e => e.ID == model.SelectedID);
+//             //  _context.Clients.Add(client_);
+//             //  await _context.SaveChangesAsync();
+//             //  return RedirectToAction(nameof(Index));      
+
+
+//              }
+
+
+//         // GET: Projects/Delete/5
+//         public async Task<IActionResult> Delete(string id)
+//         {
+//             if (id == null)
+//             {
+//                 return NotFound();
+//             }
+
+//             var project = await _context.Projects
+//                 .SingleOrDefaultAsync(m => m.ID == id);
+//             if (project == null)
+//             {
+//                 return NotFound();
+//             }
+
+//             return View(project);
+//         }
+
+//         // POST: Projects/Delete/5
+//         [HttpPost, ActionName("Delete")]
+//         [ValidateAntiForgeryToken]
+//         public async Task<IActionResult> DeleteConfirmed(string id)
+//         {
+//             var project = await _context.Projects.SingleOrDefaultAsync(m => m.ID == id);
+//             _context.Projects.Remove(project);
+//             await _context.SaveChangesAsync();
+//             return RedirectToAction(nameof(Index));
+//         }
+
+//         private bool ProjectExists(string id)
+//         {
+//             return _context.Projects.Any(e => e.ID == id);
+//         }
+//     }
+// }
